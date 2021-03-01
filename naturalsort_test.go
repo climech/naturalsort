@@ -2,10 +2,8 @@ package naturalsort
 
 import (
 	"bytes"
-	"fmt"
 	"reflect"
 	"testing"
-	"time"
 )
 
 var assorted = []string{
@@ -116,24 +114,6 @@ func TestSort(t *testing.T) {
 	if !reflect.DeepEqual(want, input) {
 		t.Errorf("wrong order;\nwant: %v,\n got: %v", want, input)
 	}
-}
-
-func TestBenchmark(t *testing.T) {
-	start := time.Now()
-	for i := 0; i < 25000; i++ {
-		input := assorted[:]
-		//want := sorted
-
-		Sort(input)
-
-		/*
-			if !reflect.DeepEqual(want, input) {
-				t.Errorf("wrong order;\nwant: %v,\n got: %v", want, input)
-			}
-		*/
-	}
-	end := time.Now()
-	fmt.Printf("Time elapsed: %v\n", end.Sub(start))
 }
 
 func TestSortReversed(t *testing.T) {
